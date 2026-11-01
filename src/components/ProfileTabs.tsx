@@ -13,7 +13,7 @@ export default function ProfileTabs({ tabs }: ProfileTabsProps) {
 
   return (
     <section>
-      <div role="tablist" aria-label="프로필 탭" className="relative mx-6 grid border-b border-line" style={{ gridTemplateColumns: `repeat(${tabs.length}, 1fr)` }}>
+      <div role="tablist" aria-label="프로필 탭" className="relative grid border-b border-line" style={{ gridTemplateColumns: `repeat(${tabs.length}, 1fr)` }}>
         {tabs.map((tab, i) => (
           <button
             key={tab.id}

@@ -4,7 +4,7 @@ import MockLink from "./MockLink";
 
 export default function ContentCarousel() {
   return (
-    <div className="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2">
+    <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2">
       {contents.map((item) => {
         const Icon = item.icon;
         return (

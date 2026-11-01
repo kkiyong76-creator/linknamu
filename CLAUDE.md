@@ -8,8 +8,8 @@
 - 출시 범위: 아래 주요 기능을 갖춘 웹 서비스 (모바일 반응형)
 
 ## 화면 구성 (위에서 아래로, 가운데 정렬)
-"다크 벤토" 인플루언서 프로필 (최대 너비 480px)
-1. 커버 + 프로필 (`ProfileCover`)
+"다크 벤토" 인플루언서 프로필 (모든 섹션 같은 컬럼: max-w 480px, px-5)
+1. 상단 바(`TopBar`) + 프로필(`ProfileHeader`: 그라데이션 링 사진 · 새 영상 배지), 상단 glow 2개(`page.tsx`, `ProfileHeader`)
 2. 통계 3칸 (`ProfileStats`)
 3. 팔로우 · 메시지 · 공유 버튼 (`ProfileActions`)
 4. SNS 아이콘 줄 (`SocialLinks`)

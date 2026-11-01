@@ -31,12 +31,8 @@ html {
 body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  /* 상단에 보라 · 라임빛이 은은하게 번짐 */
-  background:
-    radial-gradient(600px 400px at 15% -5%, rgba(139, 92, 246, 0.15), transparent 70%),
-    radial-gradient(500px 360px at 90% 0%, rgba(198, 244, 50, 0.08), transparent 70%),
-    var(--background);
-  background-repeat: no-repeat;
+  /* 상단 glow는 page.tsx · ProfileHeader 에서 그림 */
+  background: var(--background);
 }
 
 /* 카드 공통: hover 시 라임빛 glow + 2px 상승 */

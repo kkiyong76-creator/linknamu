@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
-import ProfileCover from "@/components/ProfileCover";
+import TopBar from "@/components/TopBar";
+import ProfileHeader from "@/components/ProfileHeader";
 import ProfileStats from "@/components/ProfileStats";
 import ProfileActions from "@/components/ProfileActions";
 import SocialLinks from "@/components/SocialLinks";
@@ -22,7 +23,8 @@ export default async function Home() {
 
   // 진입 시 섹션이 위에서부터 순서대로 페이드인
   const sections: ReactNode[] = [
-    <ProfileCover key="cover" name={profile.name} avatar={profile.avatar} />,
+    <TopBar key="topbar" />,
+    <ProfileHeader key="profile" name={profile.name} avatar={profile.avatar} />,
     <ProfileStats key="stats" />,
     <ProfileActions key="actions" />,
     <SocialLinks key="socials" socials={profile.socials} extras={mockSocials} />,
@@ -33,21 +35,27 @@ export default async function Home() {
           id: "links",
           label: "링크",
           panel: (
-            <div className="flex flex-col gap-3 px-6">
+            <div className="flex flex-col gap-3">
               <BentoGrid />
               <LinkList links={profile.links} clickCounts={clickCounts} />
             </div>
           ),
         },
-        { id: "content", label: "콘텐츠", panel: <div className="px-6"><ContentCarousel /></div> },
-        { id: "shop", label: "샵", panel: <div className="px-6"><ShopGrid /></div> },
+        { id: "content", label: "콘텐츠", panel: <ContentCarousel /> },
+        { id: "shop", label: "샵", panel: <ShopGrid /> },
       ]}
     />,
     <SiteFooter key="footer" />,
   ];
 
   return (
-    <main className="mx-auto flex w-full max-w-[480px] flex-1 flex-col gap-6 pb-12 sm:pt-6">
+    <main className="relative mx-auto flex w-full max-w-[480px] flex-1 flex-col gap-6 overflow-x-clip px-5 pb-12">
+      {/* 보라 glow: 상단 중앙에서 150px 위 */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-[150px] left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(124,58,237,0.42), transparent 68%)" }}
+      />
       {sections.map((section, i) => (
         <div key={i} className="fade-up" style={{ "--i": i } as CSSProperties}>
           {section}

@@ -3,22 +3,15 @@
 import { useState } from "react";
 import { Check, MessageCircle, Share2, UserPlus } from "lucide-react";
 import { useToast } from "./Toast";
+import { useShareLink } from "./useShareLink";
 
 export default function ProfileActions() {
   const toast = useToast();
+  const share = useShareLink();
   const [following, setFollowing] = useState(false);
 
-  const share = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-    } catch {
-      // 클립보드 권한이 없어도 데모 토스트는 표시
-    }
-    toast("링크가 복사되었어요");
-  };
-
   return (
-    <section className="flex gap-2 px-6">
+    <section className="flex gap-2">
       <button
         type="button"
         onClick={() => setFollowing((v) => !v)}
