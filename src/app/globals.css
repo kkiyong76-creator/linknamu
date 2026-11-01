@@ -1,20 +1,39 @@
 @import "tailwindcss";
 
-/* 화면그리기2 스케치 색상 (노랑 배경 · 연두 프로필 · 하늘색 카드 · 빨간 강조) */
 :root {
-  --background: #ffec99;
-  --foreground: #1e1e1e;
-  --avatar: #b2f2bb;
-  --card: #a5d8ff;
-  --accent: #e03131;
+  --background: #f7f7f5;
+  --card: #ffffff;
+  --border: #e5e5e2;
+  --foreground: #1c1c1e;
+  --muted: #6b6b70;
+  --icon: #3a3a3e;
+  --point: #2f4a6d;
+  /* 포인트 배경 위 글자색 */
+  --on-point: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121214;
+    --card: #1c1c1f;
+    --border: #2c2c30;
+    --foreground: #ededed;
+    --muted: #9a9aa0;
+    --icon: #c8c8cc;
+    --point: #8fa9cc;
+    --on-point: #121214;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-avatar: var(--avatar);
   --color-card: var(--card);
-  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-icon: var(--icon);
+  --color-point: var(--point);
+  --color-on-point: var(--on-point);
   --font-sans: "Pretendard";
 }
 
@@ -22,4 +41,27 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+/* 진입 시 위에서부터 순서대로 페이드인 (지연은 --i * 50ms) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 400ms ease-out both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
 }

@@ -38,7 +38,7 @@ type SocialLinksProps = {
 
 export default function SocialLinks({ socials }: SocialLinksProps) {
   return (
-    <ul className="flex gap-2 rounded-2xl bg-neutral-100 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
+    <ul className="flex gap-2">
       {socials.map((social) => {
         const isExternal = social.url.startsWith("http");
         return (
@@ -48,7 +48,7 @@ export default function SocialLinks({ socials }: SocialLinksProps) {
               target={isExternal ? "_blank" : undefined}
               rel={isExternal ? "noopener noreferrer" : undefined}
               aria-label={social.label}
-              className="grid h-9 w-9 place-items-center rounded-full border border-neutral-300 bg-white transition hover:-translate-y-0.5 hover:border-foreground sm:h-10 sm:w-10"
+              className="grid h-11 w-11 place-items-center rounded-full border border-border bg-transparent text-icon transition-colors duration-150 hover:border-point hover:text-point"
             >
               <svg
                 viewBox="0 0 24 24"
