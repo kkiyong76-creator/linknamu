@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* 화면그리기2 스케치 색상 (노랑 배경 · 연두 프로필 · 하늘색 카드 · 빨간 강조) */
+:root {
+  --background: #ffec99;
+  --foreground: #1e1e1e;
+  --avatar: #b2f2bb;
+  --card: #a5d8ff;
+  --accent: #e03131;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-avatar: var(--avatar);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --font-sans: "Pretendard";
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
