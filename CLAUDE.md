@@ -8,15 +8,21 @@
 - 출시 범위: 아래 주요 기능을 갖춘 웹 서비스 (모바일 반응형)
 
 ## 화면 구성 (위에서 아래로, 가운데 정렬)
-1. 원형 프로필 사진 (96px, 옅은 1px 링)
-2. 이름
-3. 한 줄 소개
-4. 소셜 아이콘 줄 (인스타그램 · 유튜브 · 링크드인 · 깃허브 · 이메일)
-5. 링크 카드 목록 (흰 카드 + 1px 테두리, 첫 카드만 포인트 색 배경, 오른쪽 `ArrowUpRight`)
-6. 하단 문구 "powered by kiyong"
-- 미니멀 스타일: 배경 `#F7F7F5`, 카드 `#FFFFFF`, 테두리 `#E5E5E2`, 텍스트 `#1C1C1E`/`#6B6B70`, 포인트 `#2F4A6D` + 다크 모드 (색상은 `globals.css`의 CSS 변수)
-- 콘텐츠 최대 너비 440px, 진입 시 순차 페이드인(`.fade-up` + `--i`)
-- 폰트: Pretendard (jsDelivr CDN, `layout.tsx`), 아이콘: `lucide-react`
+"다크 벤토" 인플루언서 프로필 (최대 너비 480px)
+1. 커버 + 프로필 (`ProfileCover`)
+2. 통계 3칸 (`ProfileStats`)
+3. 팔로우 · 메시지 · 공유 버튼 (`ProfileActions`)
+4. SNS 아이콘 줄 (`SocialLinks`)
+5. 링크 / 콘텐츠 / 샵 탭 (`ProfileTabs`)
+   - 링크: 벤토 그리드(`components/links/`) + 링크 리스트(`LinkList`)
+   - 콘텐츠: 가로 스크롤(`ContentCarousel`) · 샵: 상품 2열(`ShopGrid`)
+6. 푸터 (`SiteFooter`)
+- 실제 링크(`profile.ts`)만 `/api/click/[id]`로 집계. 나머지는 목업(`src/data/mockProfile.ts`) — `MockLink`가 `href="#"` + 토스트("준비 중인 기능이에요")
+- 토스트: `Toast.tsx`의 `ToastProvider`(layout) + `useToast()`
+- 색: 배경 `#0B0B0F`, 카드 `#16161C`, 테두리 `rgba(255,255,255,0.08)`, 텍스트 `#F5F5F7`/`#8E8E93`, 포인트 `#C6F432`(주요 버튼·배지·활성 탭만) — `globals.css` CSS 변수
+- 공통 클래스: `.bento`(카드 + hover glow), `.press`(눌림), `.fade-up` + `--i`(순차 페이드인)
+- 외부 이미지 금지: 썸네일은 그라데이션 + `lucide-react` 아이콘 (추가 라이브러리 금지)
+- 폰트: Pretendard (jsDelivr CDN, `layout.tsx`)
 
 ## 기술 스택
 - Next.js 16 (App Router)
